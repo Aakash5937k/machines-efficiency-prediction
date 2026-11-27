@@ -9,7 +9,7 @@ pipeline {
                     extensions: [],
                     userRemoteConfigs: [[
                         credentialsId: 'gitHub-token',
-                        url: 'https://github.com/Aakash5937k37k/machines-efficiency-prediction.git'
+                        url: 'https://github.com/Aakash5937k/machines-efficiency-prediction.git'
                     ]]
                 )
             }
