@@ -44,13 +44,17 @@ pipeline {
                     echo 'Installing Kubectl & ArgoCD CLI...'
 
                     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+                    mv kubectl /usr/local/bin/kubectl
+                    chmod +x /usr/local/bin/kubectl
 
-                    chmod +x kubectl
-                    sudo mv kubectl /usr/local/bin/kubectl
+                    curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+                    chmod +x /usr/local/bin/argocd
 
-                    sudo curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+                    echo 'Kubectl version:'
+                    kubectl version --client
 
-                    sudo chmod +x /usr/local/bin/argocd
+                    echo 'ArgoCD version:'
+                    argocd version --client
                 '''
             }
         }
